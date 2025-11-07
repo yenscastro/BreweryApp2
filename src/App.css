@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, rgb(15, 52, 96) 0%, rgb(46, 26, 26) 100%);
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.app-header {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, rgb(255, 215, 0), rgb(255, 140, 0));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.stats-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stats-icon {
+  font-size: 2.5rem;
+}
+
+.stats-content h3 {
+  font-size: 0.9rem;
+  color: rgb(204, 204, 204);
+  margin-bottom: 0.5rem;
+}
+
+.stats-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.controls-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgb(255, 215, 0);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.search-input::placeholder {
+  color: rgb(204, 204, 204);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: rgb(255, 215, 0);
+  font-size: 0.9rem;
+}
+
+.filter-group select {
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: rgb(255, 215, 0);
+}
+
+.filter-group select option {
+  background: rgb(26, 26, 46);
+  color: rgb(255, 255, 255);
+  padding: 0.5rem;
+}
+
+.filter-group select option:hover {
+  background: rgb(255, 215, 0);
+  color: rgb(26, 26, 46);
+}
+
+.clear-filters {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, rgb(255, 107, 107), rgb(238, 90, 82));
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.clear-filters:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.brewery-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brewery-list h2 {
+  margin-bottom: 1.5rem;
+  color: rgb(255, 215, 0);
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.breweries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.brewery-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.brewery-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  background: linear-gradient(135deg, rgb(255, 215, 0) 0%, rgb(255, 140, 0) 100%);
+  color: rgb(26, 26, 46);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.type-icon {
+  font-size: 2rem;
+}
+
+.brewery-name {
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.brewery-info p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.brewery-info strong {
+  color: rgb(255, 215, 0);
+}
+
+.brewery-website a {
+  color: rgb(79, 195, 247);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.brewery-website a:hover {
+  text-decoration: underline;
+}
+
+.loading, .error, .no-results {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.loading {
+  font-size: 1.3rem;
+  color: rgb(255, 215, 0);
+}
+
+.error {
+  color: rgb(255, 107, 107);
+  font-size: 1.2rem;
+}
+
+.no-results h3 {
+  color: rgb(255, 215, 0);
+  margin-bottom: 0.5rem;
+}
+
+.no-results p {
+  color: rgb(204, 204, 204);
+}
+
+/* Router Links */
+.brewery-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.brewery-card-link:hover .brewery-card {
+  transform: translateY(-5px);
+}
+
+/* Detail View */
+.brewery-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.detail-header {
+  background: linear-gradient(135deg, rgb(255, 215, 0) 0%, rgb(255, 140, 0) 100%);
+  color: rgb(26, 26, 46);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-header h1 {
+  margin: 0;
+  flex: 1;
+}
+
+.brewery-type-badge {
+  background: rgba(26, 26, 46, 0.8);
+  color: rgb(255, 215, 0);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.detail-content {
+  padding: 2rem;
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+  color: rgb(255, 215, 0);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.detail-section p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Charts Section */
+.charts-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+}
+
+.charts-section h2 {
+  color: rgb(255, 215, 0);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.chart-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-container h3 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.charts-toggle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.toggle-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, rgb(255, 215, 0), rgb(255, 140, 0));
+  color: rgb(26, 26, 46);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .breweries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .filter-group {
+    width: 100%;
+  }
+  
+  .breweries-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .controls-section {
+    padding: 1.5rem;
+  }
+  
+  .brewery-detail {
+    padding: 1rem;
+  }
+  
+  .detail-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .charts-section {
+    padding: 1.5rem;
+  }
+}
